@@ -35,7 +35,7 @@ public class hbController : MonoBehaviour
         if(Physics.Raycast(anchor.position, -anchor.up, out hit))
         {
             float force = 0;
-            force = Mathf.Abs(1 / (0.01+hit.point.y - anchor.position.y));
+            force = Mathf.Abs(1 / (hit.point.y - anchor.position.y));
             hb.AddForceAtPosition(transform.up * force * multiplier, anchor.position, ForceMode.Acceleration);
         }
     }
