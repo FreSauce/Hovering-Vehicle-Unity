@@ -15,7 +15,10 @@ public class cameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        var rotationVector = player.rotation.eulerAngles;
+        rotationVector.z = 0;
+        rotationVector.x = 0;
+        transform.rotation = Quaternion.Euler(rotationVector);
         transform.position = player.position + offset; 
     }
 }
