@@ -14,7 +14,7 @@ public class hbController : MonoBehaviour
     }
 
     public float multiplier;
-    public float moveForce, turnTorque;
+    public float moveForce, turnTorque, bendTorque;
 
     public Transform[] anchors = new Transform[4];
     RaycastHit[] hits = new RaycastHit[4];
@@ -28,6 +28,7 @@ public class hbController : MonoBehaviour
         }
         hb.AddForce(Input.GetAxis("Vertical") * moveForce * transform.forward);
         hb.AddTorque(Input.GetAxis("Horizontal") * turnTorque * transform.up);
+        hb.AddTorque(Input.GetAxis("Horizontal") * bendTorque * transform.forward);
     }
     void ApplyForce(Transform anchor, RaycastHit hit)
     {
